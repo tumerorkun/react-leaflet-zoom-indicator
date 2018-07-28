@@ -1,0 +1,1 @@
+export { default as ReactLeafletZoomIndicator }  from './src/react-leaflet-zoom-indicator';

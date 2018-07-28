@@ -1,0 +1,17 @@
+.leaflet-zoom-indicator-control {
+    width: auto;
+    padding: 0 5px;
+    height: 22px;
+    text-align: center;
+    font: bold 12px/20px Tahoma, Verdana, sans-serif;
+    background-color: white;
+    cursor: default;
+}
+
+.leaflet-zoom-indicator-control-span {
+
+}
+
+.leaflet-zoom-indicator-control-input {
+    
+}
