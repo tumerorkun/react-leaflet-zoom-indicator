@@ -41,7 +41,7 @@ export default class ZoomIndicator extends MapControl {
     }
 
     updateZoomInfo() {
-        this.div.innerHTML = `${this.props.head}: ${this.map.getZoom()}`
+        this.div.innerHTML = `${this.props.head} ${this.map.getZoom()}`
     }
 
     changeZoomInfoAuto() {
