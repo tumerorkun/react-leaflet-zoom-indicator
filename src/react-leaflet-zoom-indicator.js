@@ -13,39 +13,58 @@ export default class ZoomIndicator extends MapControl {
         );
         this.span = DomUtil.create(
             'span',
-            'leaflet-zoom-indicator-control-span leaflet-bar-part leaflet-bar',
+            'leaflet-zoom-indicator-control-span',
             this.div
         );
         this.input = DomUtil.create(
             'input',
-            'leaflet-zoom-indicator-control-input leaflet-bar-part leaflet-bar',
+            'leaflet-zoom-indicator-control-input',
             this.div
         );
+        this.input.type = 'number'
         this.map = context.map;
     }
 
-    createLeafletElement(props) {
-        const auto =
-        typeof props.changeAuto !== 'undefined' ? props.changeAuto : true
-        const ZoomIndicator = Control.extend({
-            onAdd: () => {
-                if (auto) this.changeZoomInfoAuto();
-                this.updateZoomInfo();
-                return this.div;
-            },
-            onRemove: () => {
-
+    componentDidMount() {
+        super.componentDidMount();
+        this.changeZoomInfoAuto();
+        this.input.addEventListener('change', () => {
+            if (this.input.value !== '') {
+                if (this.input.value < 0) { this.input.value = 0; }
+                if (typeof this.map.options.minZoom !== 'undefined' && this.input.value < this.map.options.minZoom) {
+                    this.map.setZoom(this.map.options.minZoom);
+                    if ( this.map.getZoom() == this.map.options.minZoom) {
+                        this.input.value = this.map.options.minZoom
+                    }
+                }
+                if (typeof this.map.options.maxZoom !== 'undefined' && this.input.value > this.map.options.maxZoom) {
+                    this.map.setZoom(this.map.options.maxZoom);
+                    if ( this.map.getZoom() == this.map.options.maxZoom) {
+                        this.input.value = this.map.options.maxZoom
+                    }
+                } else {
+                    this.map.setZoom(this.input.value);
+                }
             }
+        })
+    }
+
+    createLeafletElement(props) {
+        const ZoomIndicator = Control.extend({
+            onAdd: () => this.div,
+            onRemove: () => { }
         })
         return new ZoomIndicator(props)
     }
 
-    updateZoomInfo() {
-        this.div.innerHTML = `${this.props.head} ${this.map.getZoom()}`
-    }
-
     changeZoomInfoAuto() {
+        this.updateZoomInfo();
         const mapEvent = () => { this.updateZoomInfo() }
         this.map.on('zoomend', mapEvent)
+    }
+
+    updateZoomInfo() {
+        this.span.innerHTML = this.props.head
+        this.input.value = this.map.getZoom()
     }
 }

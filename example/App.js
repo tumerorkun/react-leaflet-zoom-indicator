@@ -36,9 +36,10 @@ class App extends Component {
         scrollWheelZoom={false}
         bounds={this.state.bounds}
         maxZoom={this.state.maxZoom}
+        minZoom={5}
         maxBounds={this.state.maxBounds}>
         <TileLayer noWrap={true} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <ReactLeafletZoomIndicator head='zoom' position='topleft' />
+        <ReactLeafletZoomIndicator head='zoom:' position='topleft' />
     </Map>
     );
   }
