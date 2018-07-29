@@ -25,8 +25,8 @@ export default class ZoomIndicator extends MapControl {
         this.map = context.map;
     }
 
-    componentDidMount() {
-        super.componentDidMount();
+    componentDidMount(...a) {
+        super.componentDidMount(...a);
         this.changeZoomInfoAuto();
         this.input.addEventListener('change', () => {
             if (this.input.value !== '') {
