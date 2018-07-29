@@ -1,6 +1,6 @@
 import { Control, DomUtil } from 'leaflet'
 import { MapControl } from 'react-leaflet'
-import './css/react-leaflet-zoom-indicator.css'
+import './react-leaflet-zoom-indicator.css'
 
 
 export default class ZoomIndicator extends MapControl {
