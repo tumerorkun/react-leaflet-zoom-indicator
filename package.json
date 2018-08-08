@@ -4,7 +4,7 @@
   "description": "React component to display and change the current zoom level of a leaflet map.",
   "scripts": {
     "build": "rimraf dist && webpack",
-    "babel": "babel src --out-dir lib && cp src/react-leaflet-zoom-indicator.css lib",
+    "babel": "babel src --out-dir lib && cp src/*.css lib",
     "examples": "webpack-serve ./examples/webpack.config.js"
   },
   "keywords": [

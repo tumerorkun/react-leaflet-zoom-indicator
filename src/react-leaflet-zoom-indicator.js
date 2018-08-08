@@ -22,11 +22,11 @@ export default class ZoomIndicator extends MapControl {
             this.div
         );
         this.input.type = 'number'
-        this.map = context.map;
+        this.map = context.map || this.props.leaflet.map;
     }
 
-    componentDidMount(...a) {
-        super.componentDidMount(...a);
+    componentDidMount() {
+        super.componentDidMount();
         this.changeZoomInfoAuto();
         this.input.addEventListener('change', () => {
             if (this.input.value !== '') {
@@ -52,7 +52,7 @@ export default class ZoomIndicator extends MapControl {
     createLeafletElement(props) {
         const ZoomIndicator = Control.extend({
             onAdd: () => this.div,
-            onRemove: () => { }
+            // onRemove: () => { }
         })
         return new ZoomIndicator(props)
     }
