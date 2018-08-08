@@ -1,6 +1,6 @@
 {
   "name": "react-leaflet-zoom-indicator",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "React component to display and change the current zoom level of a leaflet map.",
   "scripts": {
     "build": "rimraf dist && webpack",
