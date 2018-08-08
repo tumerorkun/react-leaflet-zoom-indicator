@@ -3,9 +3,9 @@ React component to display and change the current zoom level of a leaflet map.
 
 Supports react-leaflet v1 and v2
 
-You can see an example project on [react-leaflet-zoom-indicator-example repository](https://github.com/tumerorkun/react-leaflet-zoom-indicator-example.git)
+You can see an example project on [react-leaflet-components-examples repository](https://github.com/tumerorkun/react-leaflet-components-examples.git)
 
-[working demo page](https://tumerorkun.github.io/react-leaflet-zoom-indicator-example/)
+[working demo page](https://tumerorkun.github.io/react-leaflet-components-examples/)
 
 
 # Usage
