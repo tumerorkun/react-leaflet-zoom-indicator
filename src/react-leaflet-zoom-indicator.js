@@ -21,6 +21,8 @@ export default class ZoomIndicator extends MapControl {
             'leaflet-zoom-indicator-control-input',
             this.div
         );
+        L.DomEvent.disableClickPropagation(this.div);
+        L.DomEvent.disableScrollPropagation(this.div);
         this.input.type = 'number'
         this.map = context.map || this.props.leaflet.map;
     }
